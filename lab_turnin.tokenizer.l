@@ -48,6 +48,7 @@
     AND = 291
     OR = 292
     ARRAY = 293
+    THEN = 294
     };
     
     int yyval;
@@ -105,6 +106,7 @@
 "/and" {return AND;}
 "/or" {return OR;}
 "/arr" {return ARRAY;}
+"/then" {return THEN;}
 \n {return EOL;}
 [\t] {/*ignore whitespace*/}
 . {printf("Mystery character %c\n", *yytext);}
