@@ -51,7 +51,7 @@
     THEN = 294
     };
     
-    int yyval;
+    int yylval;
 %}
 
 %%
