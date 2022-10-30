@@ -55,8 +55,8 @@
 %}
 
 %%
-[+-]?[0-9] {yylval = atio{yytext}; return DIGIT;}
-[+-]?(\.{DIGIT}+)|({DIGIT}+(\.{DIGIT}*)?([eE]?[0-9]+)?) {yyval = atio{yytext}; return DIGITS;}
+[+-]?[0-9] {return DIGIT;}
+[+-]?(\.{DIGIT}+)|({DIGIT}+(\.{DIGIT}*)?([eE]?[0-9]+)?) {return DIGITS;}
 [a-zA-Z0-9_]*[a-zA-Z0-9]* {return IDENTIFIER;}
 "/bp" {return BEGIN_PAR;}
 "/ep" {return END_PAR;}
