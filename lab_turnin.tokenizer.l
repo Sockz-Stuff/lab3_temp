@@ -1,5 +1,7 @@
 %{
    enum yytokentype {
+    DIGIT = 243
+    DIGITS = 244
     BEGIN_PAR = 245
     END_PAR = 246
     BEGIN_LOC = 247
