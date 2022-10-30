@@ -4,6 +4,7 @@ void yyerror(const char *s);
 #include <stdio.h>
 %}
 
+
 %token BEGIN_PAR
 %token END_PAR
 %token BEGIN_LOC
@@ -53,7 +54,9 @@ void yyerror(const char *s);
 %token AND
 %token OR
 %token ARRAY
-
+%token IDENTIFIER
+%token DIGITS
+%token THEN
 %%
 
 Program:    Function Program
@@ -61,7 +64,7 @@ Program:    Function Program
             ;
 	    
 	    
-Function:   Function IDENTIFIER SEMICOLON BEGIN_PAR Declaration SEMICOLON END_PAR BEGIN_LOC Declaration SEMICOLON END_LOCALS BEGIN_BOD Statement SEMICOLON END_BOD
+Function:   Function IDENTIFIER SEMICOLON BEGIN_PAR Declaration SEMICOLON END_PAR BEGIN_LOC Declaration SEMICOLON END_LOC BEGIN_BOD Statement SEMICOLON END_BOD
             {printf("Function->Function IDENTIFIER SEMICOLON BEGIN_PAR Declaration SEMICOLON END_PAR BEGIN_LOC Declaration SEMICOLON END_LOCALS BEGIN_BOD Statement SEMICOLON END_BOD\n");}
             ;	    
 	    
@@ -75,7 +78,7 @@ Declaration:    IDENTIFIER COLON INTEGER SEMICOLON
 		
 Statement:     Var ASSIGN Expression SEMICOLON
                {printf("Statement->Var ASSIGN Expression SEMICOLON\n");}
-               | IF Bool_Exp THEN Statment SEMICOLON ENDIF SEMICOLON
+               | IF Bool_Exp THEN Statement SEMICOLON ENDIF SEMICOLON
                {printf("Statement->IF Bool_Exp THEN Statment SEMICOLON ENDIF SEMICOLON\n");}                       
                | IF Bool_Exp THEN Statement SEMICOLON ELSEIF Statement SEMICOLON
                {printf("Statement->IF Bool_Exp THEN Statment SEMICOLON ELSEIF Statement SEMICOLON\n");}
@@ -98,22 +101,22 @@ Expression:   Mult_Exp
 		{printf("MultExp\n");}
 	      |Mult_Exp ADD Expression
               {printf("Expression->Mult_Exp ADD Expression\n");}
-              | Mult_Exp SUB Expression
+              | Mult_Exp SUBTRACT Expression
               {printf("Expression->Mult_Exp SUB Expression\n");}
               ;
 	       
 	       
-Loop_Statement:   DO BEGINLOOP Statement SEMICOLON ENDLOOP WHILE Bool_Exp
-                  {printf("Loop_Statement->DO BEGINLOOP Statement SEMICOLON ENDLOOP WHILE Bool_Exp\n");}
-                  | WHILE Bool_Exp BEGINLOOP Statement SEMICOLON ENDLOOP
-                  {printf("Loop_Statement->WHILE Bool_Exp BEGINLOOP Statement SEMICOLON ENDLOOP\n");}
+Loop_Statement:   DO LOOP_BEGIN Statement SEMICOLON LOOP_END WHILE Bool_Exp
+                  {printf("Loop_Statement->DO LOOP_BEGIN Statement SEMICOLON LOOP_END WHILE Bool_Exp\n");}
+                  | WHILE Bool_Exp LOOP_BEGIN Statement SEMICOLON LOOP_END
+                  {printf("Loop_Statement->WHILE Bool_Exp LOOP_BEGIN Statement SEMICOLON LOOP_END\n");}
                   ;	       
 
 
 Comp:   LESST
         {printf("Comp->LESST\n");}
-        | LESSTQ
-        {printf("Comp->LESSTQ\n");}
+        | LESSTEQ
+        {printf("Comp->LESSTEQ\n");}
         | GREATT
         {printf("Comp->GREATT\n");}
         | GREATTEQ
@@ -149,14 +152,14 @@ Mult_Exp:   Term
 	    {printf("Term\n");}
 	    |Term MULT Mult_Exp
             {printf("Mult_Exp->Term MULT Mult_Exp\n");}
-            | Term DIV Mult_Exp
+            | Term DIVI Mult_Exp
             {printf("Mult_Exp->Term DIV Mult_Exp\n");}
             | Term MOD Mult_Exp
             {printf("Mult_Exp->Term MOD Mult_Exp\n");}
             ;
             
               
-Bool_Exp:   Relation_Expression
+Bool_Exp:   Relation_Exp
             {printf("Bool_Exp->Relation_Expression\n");}
             | Bool_Exp OR Relation_Exp
             {printf("Bool_Exp->Bool_Exp OR Relation_Exp\n");}
@@ -171,8 +174,8 @@ Relation_Exp:   NOT Expression Comp Expression
                 {printf("Relation_Exp->TRU\n");}
                 | FAL
                 {printf("Relation_Exp->FAL\n");}
-                | L_PAREN Bool_Exp R_Paren
-                {printf("Relation_Exp->L_PAREN Bool_Exp R_Paren\n");}
+                | L_PAREN Bool_Exp R_PAREN
+                {printf("Relation_Exp->L_PAREN Bool_Exp R_PAREN\n");}
                 | Relation_Exp AND Relation_Exp
                 {printf("Relation_Exp->Relation_Exp AND Relation_Exp\n");}
                 ;
