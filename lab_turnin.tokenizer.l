@@ -10,7 +10,6 @@
     WHILE = 252
     LOOP_BEGIN = 253
     LOOP_END = 254
-    BREAK = 255
     RETURN = 256
     CONTINUE = 257
     ADD = 258,
@@ -68,7 +67,6 @@
 "/while" {return WHILE;}
 "/loop_b" {return LOOP_BEGIN;}
 "/loop_e" {return LOOP_END;}
-"BREAK" {return BREAK;}
 "RETURN" {return RETURN;}
 "CONT" {return CONTINUE;}
 "/add" {return ADD;}
