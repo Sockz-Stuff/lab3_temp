@@ -59,9 +59,15 @@ void yyerror(const char *s);
 %token THEN
 %%
 
-Program:    Function Program
-            {printf("Program->Function Program\n");}
+
+
+Program:    Functions 
+            {printf("Program->Functions\n");}
             ;
+	    
+	    
+Functions:  Function Functions
+ 	    {printf("Functions->Function Functions\n");}
 	    
 	    
 Function:   Function IDENTIFIER SEMICOLON BEGIN_PAR Declaration SEMICOLON END_PAR BEGIN_LOC Declaration SEMICOLON END_LOC BEGIN_BOD Statement SEMICOLON END_BOD
