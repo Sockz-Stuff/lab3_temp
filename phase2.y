@@ -4,7 +4,7 @@ void yyerror(const char *s);
 #include <stdio.h>
 %}
 
-
+%start program
 %token BEGIN_PAR
 %token END_PAR
 %token BEGIN_LOC
