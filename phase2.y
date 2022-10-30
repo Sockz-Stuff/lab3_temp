@@ -76,7 +76,9 @@ Statement:     Var ASSIGN Expression SEMICOLON
                ;	
 	       
 	       
-Expression:   Mult_Exp ADD Expression
+Expression:   Mult_Exp
+		{printf("MultExp\n");}
+	      |Mult_Exp ADD Expression
               {printf("Expression->Mult_Exp ADD Expression\n");}
               | Mult_Exp SUB Expression
               {printf("Expression->Mult_Exp SUB Expression\n");}
@@ -125,7 +127,9 @@ Var:    IDENTIFIER
         ;
         
 	
-Mult_Exp:   Term MULT Mult_Exp
+Mult_Exp:   Term
+	    {printf("Term\n");}
+	    |Term MULT Mult_Exp
             {printf("Mult_Exp->Term MULT Mult_Exp\n");}
             | Term DIV Mult_Exp
             {printf("Mult_Exp->Term DIV Mult_Exp\n");}
