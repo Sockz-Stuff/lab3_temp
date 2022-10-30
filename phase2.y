@@ -4,7 +4,19 @@ void yyerror(const char *s);
 #include <stdio.h>
 %}
 
-
+%token BEGIN_PAR
+%token END_PAR
+%token BEGIN_LOC
+%token END_LOC
+%token BEGIN_BOD
+%token END_BOD
+%token DO
+%token WHILE
+%token LOOP_BEGIN
+%token LOOP_END
+%token BREAK
+%token RETURN
+%token CONTINUE
 %token ADD
 %token SUBTRACT
 %token MULT
@@ -34,7 +46,13 @@ void yyerror(const char *s);
 %token COLON
 %token SEMICOLON
 %token COMMA
-
+%token NEG
+%token TRU
+%token FAL
+%token NOT
+%token AND
+%token OR
+%token ARRAY
 
 %%
 
