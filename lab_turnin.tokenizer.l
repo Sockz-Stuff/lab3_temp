@@ -70,7 +70,7 @@
 "/loop_e" {return LOOP_END;}
 "BREAK" {return BREAK;}
 "RETURN" {return RETURN;}
-"CONT" {return CONT;}
+"CONT" {return CONTINUE;}
 "/add" {return ADD;}
 "/sub" {return SUBTRACT;}
 "/mult" {return MULT;}
