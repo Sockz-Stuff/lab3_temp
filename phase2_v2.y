@@ -161,3 +161,8 @@ int main(int argc, char ** argv) {
 
   yyparse();
 }
+
+void yyerror(const char *s){
+
+}
+
