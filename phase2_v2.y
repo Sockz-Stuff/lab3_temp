@@ -158,11 +158,6 @@ var:	  IDENTIFIER { printf("var -> IDENTIFIER %s\n", $1); }
 %%
 
 int main(int argc, char ** argv) {
-    if(argc >= 2){
-
-	yyin = stdin;
-
-  } 
 
   yyparse();
 }
