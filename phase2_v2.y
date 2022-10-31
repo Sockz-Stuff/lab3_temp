@@ -163,6 +163,6 @@ int main(int argc, char ** argv) {
 }
 
 void yyerror(const char *msg) {
-    printf("Error at Line %d, Columnn %d: %s \n", row, col, msg);
+    printf("Error at Line %d, Columnn %d: %s \n");
 }	
         
