@@ -1,7 +1,7 @@
 
 %{
 #include "y.tab.h"
-int row = 1 
+int row = 1; 
 int col = 1;
 %}
 
