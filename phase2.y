@@ -121,14 +121,14 @@ Loop_Statement:   DO BEGINLOOP Statement SEMICOLON ENDLOOP WHILE Bool_Exp
                   ;	       
 
 
-Comp:   LESST
-        {printf("Comp->LESST\n");}
-        | LESSTEQ
-        {printf("Comp->LESSTEQ\n");}
-        | GREATT
-        {printf("Comp->GREATT\n");}
-        | GREATTEQ
-        {printf("Comp->GREATTEQ\n");}
+Comp:   LT
+        {printf("Comp->LT\n");}
+        | LTE
+        {printf("Comp->LTE\n");}
+        | GT
+        {printf("Comp->GT\n");}
+        | GTE
+        {printf("Comp->GTE\n");}
         | EQUIV
         {printf("Comp->EQUUIV\n");}
         ;
@@ -178,10 +178,10 @@ Relation_Exp:   NOT Expression Comp Expression
                 {printf("Relation_Exp->NOT Expression Comp Expression\n");}
                 | Expression Comp Expression
                 {printf("Relation_Exp->Expression Comp Expression\n");}
-                | TRU
+                | TRUE
                 {printf("Relation_Exp->TRU\n");}
-                | FAL
-                {printf("Relation_Exp->FAL\n");}
+                | FALSE
+                {printf("Relation_Exp->FALE\n");}
                 | L_PAREN Bool_Exp R_PAREN
                 {printf("Relation_Exp->L_PAREN Bool_Exp R_PAREN\n");}
                 | Relation_Exp AND Relation_Exp
