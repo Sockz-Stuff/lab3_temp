@@ -87,8 +87,8 @@ Statement:     Var ASSIGN Expression SEMICOLON
                {printf("Statement->Var ASSIGN Expression SEMICOLON\n");}
                | IF Bool_Exp THEN Statement SEMICOLON ENDIF SEMICOLON
                {printf("Statement->IF Bool_Exp THEN Statment SEMICOLON ENDIF SEMICOLON\n");}                       
-               | IF Bool_Exp THEN Statement SEMICOLON ELSEIF Statement SEMICOLON
-               {printf("Statement->IF Bool_Exp THEN Statment SEMICOLON ELSEIF Statement SEMICOLON\n");}
+               | IF Bool_Exp THEN Statement SEMICOLON ELSE Statement SEMICOLON
+               {printf("Statement->IF Bool_Exp THEN Statment SEMICOLON ELSE Statement SEMICOLON\n");}
                | Loop_Statement SEMICOLON
                {printf("Statement->Loop_Statement SEMICOLON\n");}
                | READ Var SEMICOLON
