@@ -11,6 +11,7 @@ char* stringVal;
 
 %start Program
 %token SUB
+%token NEG
 %token ADD
 %token MULT
 %token DIV
@@ -56,6 +57,7 @@ char* stringVal;
 %token TRUE
 %token FALSE
 %token RETURN
+%token BREAK
 %token NUMBER
 %token <stringVal> IDENTIFIER
 %token <integerVal> DIGIT
