@@ -109,7 +109,7 @@ Expression:   Mult_Exp
 		{printf("MultExp\n");}
 	      |Mult_Exp ADD Expression
               {printf("Expression->Mult_Exp ADD Expression\n");}
-              | Mult_Exp SUBTRACT Expression
+              | Mult_Exp SUB Expression
               {printf("Expression->Mult_Exp SUB Expression\n");}
               ;
 	       
