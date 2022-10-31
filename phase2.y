@@ -9,7 +9,6 @@ int integerVal;
 char* stringVal;
 }
 
-%start Program
 %token SUB
 %token NEG
 %token ADD
