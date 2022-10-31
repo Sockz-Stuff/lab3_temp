@@ -57,7 +57,6 @@ char* stringVal;
 %token FALSE
 %token RETURN
 %token NUMBER
-%token IDENTIFIER
 %token <stringVal> IDENTIFIER
 %token <integerVal> DIGIT
 %%
@@ -73,8 +72,8 @@ Functions:  Function Functions
  	    {printf("Functions->Function Functions\n");}
 	    
 	    
-Function:   Function IDENTIFIER SEMICOLON BEGINPARAM Declaration SEMICOLON ENDPARAM BEGINLOCALS Declaration SEMICOLON ENDLOCALS BEGINBODY Statement SEMICOLON ENDBODY
-            {printf("Function->Function IDENTIFIER SEMICOLON BEGINPARAM Declaration SEMICOLON ENDPARAM BEGINLOCALS Declaration SEMICOLON ENDLOCALS BEGINBODY Statement SEMICOLON ENDBODY\n");}
+Function:   Function IDENTIFIER SEMICOLON BEGINPARAMS Declaration SEMICOLON ENDPARAMS BEGINLOCALS Declaration SEMICOLON ENDLOCALS BEGINBODY Statement SEMICOLON ENDBODY
+            {printf("Function->Function IDENTIFIER SEMICOLON BEGINPARAMS Declaration SEMICOLON ENDPARAMS BEGINLOCALS Declaration SEMICOLON ENDLOCALS BEGINBODY Statement SEMICOLON ENDBODY\n");}
             ;	    
 	    
 	    
@@ -161,7 +160,7 @@ Mult_Exp:   Term
 	    {printf("Term\n");}
 	    |Term MULT Mult_Exp
             {printf("Mult_Exp->Term MULT Mult_Exp\n");}
-            | Term DIVI Mult_Exp
+            | Term DIV Mult_Exp
             {printf("Mult_Exp->Term DIV Mult_Exp\n");}
             | Term MOD Mult_Exp
             {printf("Mult_Exp->Term MOD Mult_Exp\n");}
