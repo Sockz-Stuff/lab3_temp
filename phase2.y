@@ -58,6 +58,8 @@ char* stringVal;
 %token RETURN
 %token NUMBER
 %token IDENTIFIER
+%token <stringVal> IDENTIFIER
+%token <integerVal> DIGIT
 %%
 
 
