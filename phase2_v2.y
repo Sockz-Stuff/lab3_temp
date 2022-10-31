@@ -161,3 +161,7 @@ int main(int argc, char ** argv) {
   yyparse();
 }
 
+void yyerror(const char *msg) {
+    //printf("Error at Line %d, Columnn %d: %s \n");
+}
+
