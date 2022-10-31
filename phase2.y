@@ -194,11 +194,6 @@ Relation_Exp:   NOT Expression Comp Expression
 %%
 main(int argc, char **argv)
 {
-  if(argc >= 2){
-
-	yyin = stdin;
-
-  } 
 
   yyparse();
 }
