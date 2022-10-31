@@ -65,7 +65,7 @@ char* stringVal;
 
 
 Program:    
-	    Functions 
+	    | Functions 
             {printf("Program->Functions\n");}
             ;
 	    
