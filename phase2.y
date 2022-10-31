@@ -4,6 +4,11 @@ void yyerror(const char *s);
 #include <stdio.h>
 %}
 
+%union{
+int integerVal;
+char* stringVal;
+}
+
 %start Program
 %token BEGIN_PAR
 %token END_PAR
