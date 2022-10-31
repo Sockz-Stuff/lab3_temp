@@ -71,16 +71,3 @@ RETURN		{ col += yyleng; return RETURN; }
 .		{printf("Error at (line %d, column %d): mystery symbol %d \"%s\"\n", row, col, atoi(yytext), yytext); exit(0);}
 
 %%
-
-/*int main(int argc, char ** argv) {
-    // The input text can be optionally read from an input file
-    // (if one was specified on the command line)
-    if (argc >= 2) {
-        yyin = fopen(argv[1], "r"); // read file
-        if (yyin == NULL) yyin = stdin; // if an error occurred, use standard input instead
-    } else {
-        yyin = stdin;
-    }
-    yylex(); // this is where the magic happens
-    return 0;
-}*/
