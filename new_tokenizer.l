@@ -12,6 +12,7 @@ IDENTIFIER  [a-zA-Z0-9_]*[a-zA-Z0-9]*
 %%
 
 "-"		{ col += yyleng; return SUB; }
+"--"  {col += yyleng; return NEG; }
 "+"		{ col += yyleng; return ADD; }
 "*"		{ col += yyleng; return MULT; }
 "/"		{ col += yyleng; return DIV; }
@@ -62,6 +63,7 @@ or		    { col += yyleng; return OR; }
 True		{ col += yyleng; return TRUE; }
 False		{ col += yyleng; return FALSE; }
 RETURN		{ col += yyleng; return RETURN; }
+BREAK   {col += yyleng; return BREAK; }
 
 {DIGIT}+	{ col += yyleng; yylval.integerVal = atoi(yytext); return NUMBER; }
 {IDENTIFIER}	{ col += yyleng; yylval.stringVal = strdup(yytext); return IDENTIFIER; }
