@@ -10,58 +10,54 @@ char* stringVal;
 }
 
 %start Program
-%token BEGIN_PAR
-%token END_PAR
-%token BEGIN_LOC
-%token END_LOC
-%token BEGIN_BOD
-%token END_BOD
-%token DO
-%token WHILE
-%token LOOP_BEGIN
-%token LOOP_END
-%token BREAK
-%token RETURN
-%token CONTINUE
+%token SUB
 %token ADD
-%token SUBTRACT
 %token MULT
-%token DIVI
+%token DIV
 %token MOD
-%token ASSIGN
-%token BREAK
-%token COMMENT
-%token INTEGER 
-%token FUNCTION
-%token IF
-%token ELSEIF
-%token ENDIF
-%token WRITE
-%token READ
-%token LESST
-%token LESSTEQ
-%token GREATT
-%token GREATTEQ
-%token EQUIV 
+%token EQUIV
 %token NOTEQ
-%token LOOP
+%token LT
+%token GT
+%token LTE
+%token GTE
+%token SEMICOLON
+%token COLON
+%token COMMA
 %token L_PAREN
 %token R_PAREN
 %token L_SQUARE_BRACKET
 %token R_SQUARE_BRACKET
-%token COLON
-%token SEMICOLON
-%token COMMA
-%token NEG
-%token TRU
-%token FAL
-%token NOT
+%token ASSIGN
+%token INTEGER
+%token ARRAY
+%token OF
+%token IF
+%token THEN
+%token ENDIF
+%token ELSE
+%token WHILE
+%token DO
+%token BEGINLOOP
+%token ENDLOOP
+%token FUNCTION
+%token BEGINPARAMS
+%token ENDPARAMS
+%token BEGINLOCALS
+%token ENDLOCALS
+%token BEGINBODY
+%token ENDBODY
+%token CONTINUE
+%token READ
+%token WRITE
 %token AND
 %token OR
-%token ARRAY
+%token NOT
+%token TRUE
+%token FALSE
+%token RETURN
+%token NUMBER
 %token IDENTIFIER
-%token DIGITS
-%token THEN
 %%
 
 
@@ -75,8 +71,8 @@ Functions:  Function Functions
  	    {printf("Functions->Function Functions\n");}
 	    
 	    
-Function:   Function IDENTIFIER SEMICOLON BEGIN_PAR Declaration SEMICOLON END_PAR BEGIN_LOC Declaration SEMICOLON END_LOC BEGIN_BOD Statement SEMICOLON END_BOD
-            {printf("Function->Function IDENTIFIER SEMICOLON BEGIN_PAR Declaration SEMICOLON END_PAR BEGIN_LOC Declaration SEMICOLON END_LOCALS BEGIN_BOD Statement SEMICOLON END_BOD\n");}
+Function:   Function IDENTIFIER SEMICOLON BEGINPARAM Declaration SEMICOLON ENDPARAM BEGINLOCALS Declaration SEMICOLON ENDLOCALS BEGINBODY Statement SEMICOLON ENDBODY
+            {printf("Function->Function IDENTIFIER SEMICOLON BEGINPARAM Declaration SEMICOLON ENDPARAM BEGINLOCALS Declaration SEMICOLON ENDLOCALS BEGINBODY Statement SEMICOLON ENDBODY\n");}
             ;	    
 	    
 	    
