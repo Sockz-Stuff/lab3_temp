@@ -151,7 +151,7 @@ var_loop:	  var { printf("var_loop -> var\n"); }
 			  | var_loop COMMA var { printf("var_loop -> var_loop COMMA var\n"); }
 			  ;		
 		
-var:	  IDENTIFIER { printf("var -> IDENTIFIER \n",); }
+var:	  IDENTIFIER { printf("var -> IDENTIFIER \n"); }
 		| IDENTIFIER L_SQUARE_BRACKET expression R_SQUARE_BRACKET { printf("var -> IDENTIFIER L_SQUARE_BRACKET expression R_SQUARE_BRACKET\n"); }
 		;
 
