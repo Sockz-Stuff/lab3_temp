@@ -80,8 +80,8 @@ Function:   Function IDENTIFIER SEMICOLON BEGINPARAM Declaration SEMICOLON ENDPA
 	    
 Declaration:    IDENTIFIER COLON INTEGER SEMICOLON
                 {printf("Declaration->IDENTIFIER COLON INTEGER SEMICOLON\n");}
-                | IDENTIFIER COLON ARRAY L_SQUARE_BRACKET DIGITS R_SQUARE_BRACKET INTEGER SEMICOLON
-                {printf("Declaration->IDENTIFIER COLON ARRAY L_SQUARE_BRACKET DIGITS R_SQUARE_BRACKET INTEGER SEMICOLON\n");}
+                | IDENTIFIER COLON ARRAY L_SQUARE_BRACKET DIGIT R_SQUARE_BRACKET INTEGER SEMICOLON
+                {printf("Declaration->IDENTIFIER COLON ARRAY L_SQUARE_BRACKET DIGIT R_SQUARE_BRACKET INTEGER SEMICOLON\n");}
                 ;	    
 		
 		
@@ -137,10 +137,10 @@ Comp:   LESST
 	
 Term:   Var
         {printf("Term->Var\n");}
-        | DIGITS
-        {printf("Term->DIGITS\n");}
-        | NEG DIGITS
-        {printf("Term->NEG DIGITS\n");}
+        | DIGIT
+        {printf("Term->DIGIT\n");}
+        | NEG DIGIT
+        {printf("Term->NEG DIGIT\n");}
         | NEG L_PAREN Expression R_PAREN
         {printf("Term->NEG L_PAREN Expression R_PAREN\n");}
         | L_PAREN Expression R_PAREN
