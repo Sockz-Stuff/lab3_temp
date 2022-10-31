@@ -78,7 +78,7 @@ declaration_loop: { printf("declaration_loop -> epsilon\n"); }
     			  | declaration_loop declaration SEMICOLON { printf("declaration_loop -> declaration_loop declaration SEMICOLON\n"); }
     			  ;
 
-declaration:	 IDENTIFIER COLON INTEGER { printf("declaration -> id_loop COLON INTEGER\n"); }
+declaration:	 IDENTIFIER COLON INTEGER { printf("declaration -> IDENTIFIER COLON INTEGER\n"); }
 				 | IDENTIFIER COLON ARRAY L_SQUARE_BRACKET DIGITS R_SQUARE_BRACKET OF INTEGER { printf("declaration -> id_loop COLON ARRAY L_SQUARE_BRACKET DIGITS %d R_SQUARE_BRACKET OF INTEGER\n", $5); }
 				;
 
@@ -140,19 +140,19 @@ mult_expr:	  term  { printf("mult_expr -> term\n"); }
 
 term:	var { printf("term -> var\n"); }
 		| SUB var { printf("term -> SUB var\n"); }
-		| DIGITS { printf("term -> DIGITS %d\n", $1); }
-		| SUB DIGITS { printf("term -> SUB DIGITS %d\n", $2); }
+		| DIGITS { printf("term -> DIGITS \n"); }
+		| SUB DIGITS { printf("term -> SUB DIGITS \n"); }
 		| L_PAREN expression R_PAREN { printf("term -> L_PAREN expression R_PAREN\n"); }
 		| SUB L_PAREN expression R_PAREN { printf("term -> SUB L_PAREN expression R_PAREN\n"); }
-		| IDENTIFIER L_PAREN expression_loop R_PAREN { printf("term -> IDENTIFIER %s L_PAREN expression_loop R_PAREN\n", $1); }
+		| IDENTIFIER L_PAREN expression_loop R_PAREN { printf("term -> IDENTIFIER %s L_PAREN expression_loop R_PAREN\n"); }
 		;
 
 var_loop:	  var { printf("var_loop -> var\n"); }
 			  | var_loop COMMA var { printf("var_loop -> var_loop COMMA var\n"); }
 			  ;		
 		
-var:	  IDENTIFIER { printf("var -> IDENTIFIER %s\n", $1); }
-		| IDENTIFIER L_SQUARE_BRACKET expression R_SQUARE_BRACKET { printf("var -> IDENTIFIER %s L_SQUARE_BRACKET expression R_SQUARE_BRACKET\n", $1); }
+var:	  IDENTIFIER { printf("var -> IDENTIFIER \n",); }
+		| IDENTIFIER L_SQUARE_BRACKET expression R_SQUARE_BRACKET { printf("var -> IDENTIFIER L_SQUARE_BRACKET expression R_SQUARE_BRACKET\n"); }
 		;
 
 %%
@@ -161,8 +161,3 @@ int main(int argc, char ** argv) {
 
   yyparse();
 }
-
-void yyerror(const char *msg) {
-    //printf("Error at Line %d, Columnn %d: %s \n");
-}
-
